@@ -12,7 +12,8 @@ It's explicitly compatible with [the hy3 plugin](https://github.com/outfoxxed/hy
 
 - Hyprland >= 0.55.0
 
-If you're using an older version of Hyprland, or have not yet switched to the new Lua config, you can use the [cpp plugin](./docs/cpp-plugin.md) instead, which provides the same functionality. This will be deprecated soon in favour of the lua package.
+If you're using an older version of Hyprland, or have not yet switched to the new Lua config, you can use the [cpp plugin](./docs/cpp-plugin.md) instead, which provides the same functionality.
+This method will be deprecated when Hyprland 0.57.0 releases.
 
 ## Installation
 
@@ -29,6 +30,18 @@ git clone https://github.com/zjeffer/split-monitor-workspaces
 package.path = package.path .. ";./?.lua;./?/init.lua"
 local smw = require("plugins.split-monitor-workspaces")
 ```
+
+If you're on the latest Hyprland git commit, simply use the `main` branch. Run `git pull` to get the latest changes every time there is an update.
+If you're on a Hyprland release branch, make sure to checkout the corresponding release branch of this plugin, like so:
+
+```sh
+# if you're on a 0.55 release, simply run this inside the split-monitor-workspaces repo:
+git fetch -Ppft && git checkout release/0.55.x
+# if you want to use a specific release instead of a branch, see the https://github.com/zjeffer/split-monitor-workspaces/tags page for a list of all possible tags. For example:
+git checkout v0.55.4
+```
+
+Make sure you always pull the latest changes with `git pull` when Hyprland has a new minor release, and checkout the new `release/0.XX.x` branch whenever a new major release is created. If there is no release branch yet, create a GitHub issue.
 
 ## Usage
 
@@ -78,15 +91,6 @@ This plugin supports [waybar's](https://github.com/Alexays/Waybar) `hyprland/wor
   },
 ```
 
-## Updating
-
-To update, simply pull the latest changes in the repository, or checkout a specific git tag if you want to update a version matching a Hyprland release.
-
-```bash
-git fetch && git checkout main && git pull
-# or, for a specific tag:
-git fetch && git checkout v0.55.0
-```
 
 It is recommended to do this every time you update Hyprland, to ensure compatibility.
 

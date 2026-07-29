@@ -7,5 +7,8 @@ hl.config({
 
         accel_profile = "flat",
         focus_on_close = 1,
+        touchpad = {
+            middle_button_emulation = false,
+        },
     }
 })

@@ -1,9 +1,9 @@
 hl.config({
     general = {
-        border_size = 2,
+        border_size = 1,
 
-        gaps_in = 3,
-        gaps_out = 5,
+        gaps_in = 5,
+        gaps_out = 10,
         float_gaps = 5,
 
         -- Colors
@@ -18,12 +18,12 @@ hl.config({
         no_focus_fallback = true,
     },
     decoration = {
-        rounding = 15,
+        rounding = 5,
 
         blur = {
             enabled = true,
             size = 3,
-            passes = 2,
+            passes = 3,
             vibrancy = 0.1696,
             popups = true,
             input_methods = true,
@@ -39,7 +39,7 @@ hl.config({
     master = {
         allow_small_split = true,
         new_on_top = true,
-        orientation = "center",
+        orientation = "left",
     },
     dwindle = {
         preserve_split = true,

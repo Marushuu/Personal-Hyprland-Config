@@ -1,6 +1,15 @@
 local mainMod = "SUPER"
-package.path = package.path .. ";/home/marushu/.config/hypr/plugins/split-monitor-workspaces/lua/?.lua"
+
+package.path = package.path .. ";/split-monitor-workspaces/lua/?.lua"
 local smw = require("split-monitor-workspaces")
+
+-- Split Monitor Workspaces
+smw.setup({
+    workspace_count = 5,
+    monitor_priority = { "DP-1", "DP-4" },
+    keep_focused = true,
+    enable_wrapping = true,
+})
 
 -- Programs
 local terminal = "kitty"
@@ -8,14 +17,6 @@ local browser = "zen-browser"
 local editor = "code"
 local fileExplorer = "thunar"
 local appLauncher = "rofi -show drun"
-
--- Split Monitor Workspaces
-smw.setup({
-    workspace_count = 5,
-    monitor_priority = { "DP-3", "DP-4" },
-    keep_focused = true,
-    enable_wrapping = true,
-})
 
 -- Session
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
@@ -69,9 +70,6 @@ hl.bind(mainMod .. " + mouse:274", hl.dsp.window.drag(), { mouse = true, drag = 
 hl.bind(mainMod .. " + mouse:274", hl.dsp.window.float(), { mouse = true, click = true })
 
 -- Focus
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-
 hl.bind(mainMod .. " + Left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + Right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + Up", hl.dsp.focus({ direction = "up" }))
@@ -89,6 +87,7 @@ hl.bind(mainMod .. " + Apostrophe", hl.dsp.window.resize({ x = 0.1, y = 0 }))
 
 -- Specials
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("music"))
+hl.bind(mainMod .. " + G", hl.dsp.workspace.toggle_special("scratch"))
 
 --- Workspaces
 -- Movement
@@ -104,10 +103,6 @@ hl.bind(mainMod .. " + ALT + mouse_up", smw.move_to_workspace("next"))
 
 for i = 1, smw.get_amount_of_workspaces() do
     local n = tostring(i)
-    if n == "10" then n = "0" end
     hl.bind(mainMod .. " +" .. n, smw.workspace(n))
     hl.bind(mainMod .. " + SHIFT +" .. n, smw.move_to_workspace_silent(n))
 end
-
--- Grab Rogue
-hl.bind(mainMod .. " + SHIFT + G", smw.grab_rogue_windows())
