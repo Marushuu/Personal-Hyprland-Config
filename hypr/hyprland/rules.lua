@@ -23,23 +23,9 @@ hl.window_rule({ match = { title = "Export Image as PNG" }, float = true })
 hl.window_rule({ match = { title = "Save As" }, float = true })
 hl.window_rule({ match = { title = "Library" }, float = true })
 
--- Terminal
-hl.window_rule({ match = { class = "kitty" }, opacity = "0.95" })
-
 -- Special Workspace
 hl.window_rule({ match = { class = "Spotify" }, workspace = "special:music" })
 
 -- Vertical Monitor Stuff
 hl.workspace_rule({ workspace = "m[DP-4]", layout_opts = { orientation = "top" } })
 -- hl.workspace_rule({ workspace = "m[DP-4]", layout = "Dwindle" })
-
--- Workspace Rules
--- hl.workspace_rule({ workspace = "1", monitor = "DP-1", default = true })
--- hl.workspace_rule({ workspace = "2", monitor = "DP-1", default = true })
--- hl.workspace_rule({ workspace = "3", monitor = "DP-1", default = true })
--- hl.workspace_rule({ workspace = "4", monitor = "DP-1", default = true })
-
--- hl.workspace_rule({ workspace = "5", monitor = "DP-4", default = true })
--- hl.workspace_rule({ workspace = "6", monitor = "DP-4", default = true })
--- hl.workspace_rule({ workspace = "7", monitor = "DP-4", default = true })
--- hl.workspace_rule({ workspace = "8", monitor = "DP-4", default = true })

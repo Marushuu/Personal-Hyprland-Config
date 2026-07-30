@@ -47,6 +47,9 @@ hl.config({
     }
 })
 
--- hl.animations({
+hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 4, bezier = "default", style = "slidevert" })
+hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 8, bezier = "default", style = "slidevert" })
 
--- })
+-- Terminal
+hl.window_rule({ match = { class = "kitty" }, opacity = "0.95" })
+hl.window_rule({ match = { class = "Spotify" }, opacity = "0.85" })

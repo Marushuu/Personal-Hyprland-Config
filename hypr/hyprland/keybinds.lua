@@ -54,6 +54,9 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphi
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grimblast copysave area"))
 hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd("grimblast copysave screen"))
 
+-- Notifications
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+
 --- Window
 -- Interactions
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
