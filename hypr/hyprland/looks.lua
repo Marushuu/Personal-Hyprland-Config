@@ -47,8 +47,8 @@ hl.config({
     }
 })
 
-hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 4, bezier = "default", style = "slidevert" })
-hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 8, bezier = "default", style = "slidevert" })
+hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 4, bezier = "default", style = "slidevert top" })
+hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 8, bezier = "default", style = "slidevert bottom" })
 
 -- Terminal
 hl.window_rule({ match = { class = "kitty" }, opacity = "0.95" })

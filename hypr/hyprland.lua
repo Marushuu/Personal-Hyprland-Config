@@ -34,17 +34,18 @@ hl.monitor({
 hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start hyprland-session.target")
     hl.exec_cmd("wl-paste --watch cliphist store")
+    hl.exec_cmd("syncthing")
     hl.exec_cmd("hyprpm reload")
     hl.exec_cmd("quickshell")
-    -- Applications
-    hl.exec_cmd("spotify-launcher")
     -- Wallpapers
     hl.exec_cmd(
         "swaybg -o DP-4 -i ~/Wallpapers/shorekeeper-wuthering-waves-wf.jpg -m fill -c C0CAF5")
     hl.exec_cmd(
         "mpvpaper -f -o '--input-ipc-server=/tmp/mpv-socket-DP-1 loop panscan=1.0 --mute=yes' DP-1 ~/Wallpapers/Denia1.mp4")
     hl.exec_cmd('mpvpaper-stop -f -p /tmp/mpv-socket-DP-1')
+    -- Applications
     hl.exec_cmd("steam & vesktop")
+    hl.exec_cmd("spotify-launcher")
 end)
 
 -- On Shutdown --

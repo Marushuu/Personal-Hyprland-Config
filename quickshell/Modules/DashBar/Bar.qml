@@ -25,7 +25,7 @@ Scope {
             }
 
             implicitHeight: 36
-            color: '#f3232324'
+            color: '#e6232324'
 
             Rectangle {
                 anchors.bottom: parent.bottom
