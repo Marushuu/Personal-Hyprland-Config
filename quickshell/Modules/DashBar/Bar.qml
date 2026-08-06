@@ -12,6 +12,8 @@ Scope {
             required property var modelData
             screen: modelData
 
+            readonly property bool primaryScreen: modelData.name === "DP-1"
+
             property int offset: {
                 if (modelData.name === "DP-1") return 0;
                 if (modelData.name === "DP-4") return 5;
@@ -46,23 +48,20 @@ Scope {
                 Workspaces {
                     offset: dashBar.offset
                     workspaceNum: 5
-                    itemWidth: parent.height
-                    itemHeight: parent.height
                 }
 
                 WindowTitle {
                     itemWidth: modelData.width / 10
-                    itemHeight: parent.height
                 }
             }
 
-            // Center
+            // Center Row
 
             MediaTracker {
-                itemHeight: parent.height
-
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
+
+                visible: primaryScreen
             }
 
             // Right Row
@@ -76,14 +75,21 @@ Scope {
                 height: parent.height
                 Tray {
                     panelWindow: dashBar
-                    itemHeight: parent.height
+                }
+                Network {
+                    textColor: "#d8dee9"
                 }
                 Clock {
                     textColor: "#d8dee9"
                     dimColor: "#31aacc"
-                    timeFontSize: 16
-                    dateFontSize: 16
-                    itemHeight: parent.height
+                    fontSize: 16
+                }
+                Text {
+                    text: ""
+                    font.pixelSize: 12
+                    color: "#d8dee9"
+
+                    anchors.verticalCenter: parent.verticalCenter
                 }
             }
         }

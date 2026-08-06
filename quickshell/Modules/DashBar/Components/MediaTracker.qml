@@ -1,5 +1,4 @@
 ﻿import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Mpris
 
@@ -8,15 +7,12 @@ import "../../../Services"
 Item {
     id: root
 
-    required property int itemHeight
-
     implicitWidth: mainRow.implicitWidth
-    height: itemHeight
 
     // Syncs with Mpris
     property var activePlayer: Mpris.players.values.length > 0 ? Mpris.players.values[0] : null
 
-    RowLayout {
+    Row {
         id: mainRow
         anchors.verticalCenter: parent.verticalCenter
         spacing: 16
@@ -24,7 +20,6 @@ Item {
         // Cava Visualizer
         Row {
             spacing: 4
-            Layout.alignment: Qt.AlignVCenter
 
             Repeater {
                 model: 6
@@ -54,7 +49,6 @@ Item {
             width: 160
             height: 20
             clip: true
-            Layout.alignment: Qt.AlignVCenter
 
             // Text dynamically updates whenever activePlayer changes
             property string fullText: {
@@ -71,6 +65,8 @@ Item {
                 
                 anchors.horizontalCenter: {
                     if (textClipBox.fullText === "No Media")
+                        return parent.horizontalCenter
+                    if (songText.implicitWidth < textClipBox.width)
                         return parent.horizontalCenter
                 }
 
@@ -111,9 +107,8 @@ Item {
         }
 
         // Inline Controls
-        RowLayout {
+        Row {
             spacing: 8
-            Layout.alignment: Qt.AlignVCenter
 
             // Previous
             Text {
@@ -131,29 +126,21 @@ Item {
             }
 
             // Play / Pause Circle
-            Rectangle {
-                width: 18
-                height: 18
-                radius: 100
-                color: "#31aacc"
-
                 Text {
-                    anchors.centerIn: parent
-                    text: root.activePlayer && root.activePlayer.isPlaying ? "󰏤" : "󰐊"
-                    font.pixelSize: 15
-                    color: '#252525'
-                }
+                    text: root.activePlayer && root.activePlayer.isPlaying ? "" : ""
+                    font.pixelSize: 16
+                    color: root.activePlayer && root.activePlayer.isPlaying ? "#31aacc": "#d8dee9"
 
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        if (root.activePlayer) {
-                            root.activePlayer.isPlaying = !root.activePlayer.isPlaying
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            if (root.activePlayer) {
+                                root.activePlayer.isPlaying = !root.activePlayer.isPlaying
+                            }
                         }
                     }
-                }
-            }
+                } 
 
             // Next
             Text {

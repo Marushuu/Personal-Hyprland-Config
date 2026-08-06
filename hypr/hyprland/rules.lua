@@ -5,6 +5,7 @@ hl.window_rule({ match = { class = "blueman-manager" }, float = true, center = t
 hl.window_rule({ match = { class = "nm-connection-editor" }, float = true, center = true })
 hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol" }, float = true, center = true, size = { 1200, 800 } })
 hl.window_rule({ match = { class = "nwg-look" }, float = true, center = true, size = { 1200, 800 } })
+hl.window_rule({ match = { class = "qt6ct" }, float = true, center = true, size = { 1200, 800 } })
 hl.window_rule({ match = { class = "paradox-launcher-v2" }, float = true })
 hl.window_rule({ match = { class = "RimSort" }, float = true })
 hl.window_rule({ match = { class = "forzarichpresence" }, float = true })

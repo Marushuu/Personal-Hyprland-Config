@@ -38,3 +38,8 @@ Hyprland Extra
 - **Hyprpolkitagent** - Hyprland's polkit agent
 - **Xdg-desktop-portal-hyprland** - XDG Desktop Portal for Hyprland
 - [**split-monitor-workspaces**](https://github.com/zjeffer/split-monitor-workspaces) - Hyprland Plugin for Split Monitor Workspaces
+
+Theming
+
+- **Nord** - Main Color Scheme, using Utterly Nord for QT and Nordic for GTK
+- **Iosevka Nerd Font Mono** - Main Font

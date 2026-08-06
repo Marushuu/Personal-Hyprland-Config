@@ -1,15 +1,14 @@
 ﻿import QtQuick
-import QtQuick.Layouts
 import Quickshell.Hyprland
 
-RowLayout {
+Row {
     id: root
-    Layout.alignment: Qt.AlignVCenter
 
     required property int offset
     required property int workspaceNum
-    required property int itemWidth
-    required property int itemHeight
+
+    width: workspaceNum.width
+    height: parent.height
 
     Repeater {
         model: workspaceNum
@@ -24,10 +23,8 @@ RowLayout {
                 return (Hyprland.focusedWorkspace.id) === num;
             }
 
-            width: root.itemWidth
-            height: root.itemHeight
-
-            Layout.alignment: Qt.AlignVCenter
+            width: parent.height
+            height: parent.height
 
             Text {
                 anchors.centerIn: parent

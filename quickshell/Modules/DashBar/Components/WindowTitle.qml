@@ -5,9 +5,8 @@ Item {
     id: root
 
     required property int itemWidth
-    required property int itemHeight
 
-    height: itemHeight
+    height: parent.height
     width: itemWidth
 
     // Checks Active Window, also checks Special Workspaces

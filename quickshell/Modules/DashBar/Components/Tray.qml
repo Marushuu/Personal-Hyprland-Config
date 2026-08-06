@@ -1,19 +1,15 @@
 ﻿import QtQuick
-import QtQuick.Layouts
 import QtQuick.Effects
 import Quickshell
 import Quickshell.Services.SystemTray
 
-RowLayout {
+Row {
     id: root
     spacing: 8
 
     required property PanelWindow panelWindow
-    required property int itemHeight
 
-    height: itemHeight
-
-    Layout.alignment: Qt.AlignVCenter
+    anchors.verticalCenter: parent.verticalCenter
 
     Repeater {
         model: SystemTray.items.values
